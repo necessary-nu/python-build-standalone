@@ -1,0 +1,18 @@
+diff --git a/Modules/posixmodule.c b/Modules/posixmodule.c
+index 0ac5a8d371..929262f84a 100644
+--- a/Modules/posixmodule.c
++++ b/Modules/posixmodule.c
+@@ -363,6 +363,13 @@ corresponding Unix manual entries for more information on calls.");
+ #  define fsync _commit
+ #endif  /* ! __WATCOMC__ || __QNX__ */
+ 
++#if __APPLE__
++#include <TargetConditionals.h>
++#if TARGET_OS_IPHONE
++#    undef HAVE_SYSTEM
++#endif
++#endif
++
+ /*[clinic input]
+ # one of the few times we lie about this name!
+ module os

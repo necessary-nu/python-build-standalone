@@ -108,6 +108,9 @@ aarch64-apple-ios:
     - macos
   pythons_supported:
     - '3.9'
+    - '3.10'
+    - '3.11'
+    - '3.12'
   needs_toolchain: true
   apple_sdk_platform: iphoneos
   host_cc: clang
@@ -592,6 +595,9 @@ x86_64-apple-ios:
     - macos
   pythons_supported:
     - '3.9'
+    - '3.10'
+    - '3.11'
+    - '3.12'
   needs_toolchain: true
   apple_sdk_platform: iphonesimulator
   host_cc: clang
