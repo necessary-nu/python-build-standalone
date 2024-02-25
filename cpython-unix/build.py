@@ -436,6 +436,7 @@ def build_cpython_host(
             "build-cpython-host.sh",
             "patch-disable-multiarch.patch",
             "patch-disable-multiarch-legacy.patch",
+            "patch-always-build-python-for-freeze.patch"
         }
         for s in sorted(support):
             build_env.copy_file(SUPPORT / s)
@@ -671,6 +672,7 @@ def python_build_info(
     for p in sorted(modules_objs):
         log("adding core object file %s" % p)
         bi["core"]["objs"].append(str(p))
+    bi["core"]["objs"].append("build/Modules/atexitmodule.o")
 
     return bi
 

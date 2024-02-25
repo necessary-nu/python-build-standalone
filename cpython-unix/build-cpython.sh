@@ -470,6 +470,10 @@ make -j ${NUM_CPUS}
 make -j ${NUM_CPUS} sharedinstall DESTDIR=${ROOT}/out/python
 make -j ${NUM_CPUS} install DESTDIR=${ROOT}/out/python
 
+echo ${ROOT}/out/python
+
+read
+
 if [ -n "${CPYTHON_DEBUG}" ]; then
     PYTHON_BINARY_SUFFIX=d
 else
@@ -836,7 +840,7 @@ ${BUILD_PYTHON} ${ROOT}/fix_shebangs.py ${ROOT}/out/python/install
 
 # Also copy object files so they can be linked in a custom manner by
 # downstream consumers.
-OBJECT_DIRS="Objects Parser Parser/pegen Programs Python"
+OBJECT_DIRS="Objects Parser Parser/pegen Programs Python Python/deepfreeze"
 OBJECT_DIRS="${OBJECT_DIRS} Modules"
 for ext in _blake2 cjkcodecs _ctypes _ctypes/darwin _decimal _expat _hacl _io _multiprocessing _sha3 _sqlite _sre _xxtestfuzz ; do
     OBJECT_DIRS="${OBJECT_DIRS} Modules/${ext}"
